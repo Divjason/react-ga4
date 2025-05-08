@@ -4,23 +4,23 @@ import Viewer from "./components/Viewer";
 import Controller from "./components/Controller";
 import "./App.css";
 
-const usePageTracking = () => {
-  const location = useLocation();
+// const usePageTracking = () => {
+//   const location = useLocation();
 
-  useEffect(() => {
-    window.gtag &&
-      window.gtag("event", "page_view", {
-        page_path: location.pathname + location.search,
-      });
-  }, [location]);
-};
+//   useEffect(() => {
+//     window.gtag &&
+//       window.gtag("event", "page_view", {
+//         page_path: location.pathname + location.search,
+//       });
+//   }, [location]);
+// };
 
 function App() {
   const [count, setCount] = useState(0);
   const handleSetCount = (value) => {
     setCount(count + value);
   };
-  usePageTracking();
+  // usePageTracking();
   return (
     <div className="App">
       <h1>Simple Counter</h1>
