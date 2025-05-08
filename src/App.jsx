@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useLocaction } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Viewer from "./components/Viewer";
 import Controller from "./components/Controller";
 import "./App.css";
 
 const usePageTracking = () => {
-  const location = useLocaction();
+  const location = useLocation();
 
   useEffect(() => {
     window.gtag &&
