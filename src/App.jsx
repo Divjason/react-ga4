@@ -1,13 +1,26 @@
-import { useState } from "react";
-import "./App.css";
+import { useState, useEffect } from "react";
+import { useLocaction } from "react-router-dom";
 import Viewer from "./components/Viewer";
 import Controller from "./components/Controller";
+import "./App.css";
+
+const usePageTracking = () => {
+  const location = useLocaction();
+
+  useEffect(() => {
+    window.gtag &&
+      window.gtag("event", "page_view", {
+        page_path: location.pathname + location.search,
+      });
+  }, [location]);
+};
 
 function App() {
   const [count, setCount] = useState(0);
   const handleSetCount = (value) => {
     setCount(count + value);
   };
+  usePageTracking();
   return (
     <div className="App">
       <h1>Simple Counter</h1>
